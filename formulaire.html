@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de contact dynamique</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .contact-form {
+            max-width: 600px;
+            background: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .contact-form h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #222;
+            text-align: center;
+        }
+        .contact-form label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #0077b5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #005a91;
+        }
+    </style>
+</head>
+<body>
+    <div id="formContainer"></div>
+
+    <script>
+        // Sélectionner l'élément contenant le formulaire
+        const formContainer = document.getElementById('formContainer');
+
+        // Créer la structure du formulaire
+        const formDiv = document.createElement('div');
+        formDiv.className = 'contact-form';
+
+        // Ajouter un titre
+        const title = document.createElement('h2');
+        title.textContent = 'Contactez-moi';
+        formDiv.appendChild(title);
+
+        // Créer le formulaire
+        const form = document.createElement('form');
+        form.id = 'contactForm';
+
+        // Ajouter le champ Nom
+        const nameLabel = document.createElement('label');
+        nameLabel.setAttribute('for', 'name');
+        nameLabel.textContent = 'Nom :';
+        form.appendChild(nameLabel);
+
+        const nameInput = document.createElement('input');
+        nameInput.type = 'text';
+        nameInput.id = 'name';
+        nameInput.name = 'name';
+        nameInput.placeholder = 'Votre nom';
+        nameInput.required = true;
+        form.appendChild(nameInput);
+
+        // Ajouter le champ Email
+        const emailLabel = document.createElement('label');
+        emailLabel.setAttribute('for', 'email');
+        emailLabel.textContent = 'Email :';
+        form.appendChild(emailLabel);
+
+        const emailInput = document.createElement('input');
+        emailInput.type = 'email';
+        emailInput.id = 'email';
+        emailInput.name = 'email';
+        emailInput.placeholder = 'Votre email';
+        emailInput.required = true;
+        form.appendChild(emailInput);
+
+        // Ajouter le champ Message
+        const messageLabel = document.createElement('label');
+        messageLabel.setAttribute('for', 'message');
+        messageLabel.textContent = 'Message :';
+        form.appendChild(messageLabel);
+
+        const messageTextarea = document.createElement('textarea');
+        messageTextarea.id = 'message';
+        messageTextarea.name = 'message';
+        messageTextarea.rows = 5;
+        messageTextarea.placeholder = 'Votre message';
+        messageTextarea.required = true;
+        form.appendChild(messageTextarea);
+
+        // Ajouter le bouton d'envoi
+        const submitButton = document.createElement('button');
+        submitButton.type = 'submit';
+        submitButton.textContent = 'Envoyer';
+        form.appendChild(submitButton);
+
+        // Ajouter le formulaire au conteneur principal
+        formDiv.appendChild(form);
+        formContainer.appendChild(formDiv);
+    </script>
+</body>
+</html>
